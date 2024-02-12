@@ -14,21 +14,21 @@
 
 var msgService = require("firebase-admin/messaging")
 var express = require("express")
-var cors = require('cors')
+// var cors = require('cors')
 var admin = require("firebase-admin")
 var app = express()
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
 
-app.use(
-  cors({
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
-  })
-);
+// app.use(
+//   cors({
+//     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+//   })
+// );
 
 app.use(function (req, res, next) {
   res.setHeader("Content-Type", "application/json");
