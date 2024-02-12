@@ -109,9 +109,17 @@ async function notifConditioning(notifSwitch, timeOff, token) {
     },
     token: token,
   }
+
+  const messageTimeOn = {
+    notification: {
+      title: "Time Safety is Started",
+      body: `${toStringFromInt(timeOff)} before your stove will turning off`
+    },
+    token: token
+  }
   const messageTimeOff = {
     notification: {
-      title: "Time Safety",
+      title: "Time Safety is completed",
       body: `${toStringFromInt(timeOff)} before your stove will turning off`
     },
     token: token
@@ -126,9 +134,13 @@ async function notifConditioning(notifSwitch, timeOff, token) {
       console.log(" notification 2")
       break
     case 3: // notif for time event conditon
-      await notifAvailable(messageTimeOff)
+      await notifAvailable(messageTimeOn)
       console.log("notification 3")
       break
+      case 4:
+        console.log("notification 4")
+        await notifAvailable(messageTimeOff)
+        break
     default:
       console.log("default")
   }
